@@ -1,0 +1,5 @@
+*.src
+*.txt
+UTF-8
+UTF-8-CJK
+__pycache__
