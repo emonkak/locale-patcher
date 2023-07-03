@@ -1,5 +1,4 @@
 *.src
-*.txt
 UTF-8
-UTF-8-CJK
+UTF-8-PATCHED
 __pycache__

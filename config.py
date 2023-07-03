@@ -1,11 +1,7 @@
 OVERRIDE_WIDTH = [
-    # SOFT HYPHEN (U+00ad)
-    { 'code_start': 0x00ad, 'code_end': 0x00ad, 'width': 1 },
-
     # General Punctuation (U+2000..U+206f)
     #
     # However, excluding following the code ranges:
-    #
     # - EN QUAD (U+2000) .. RIGHT-TO-LEFT MARK(U+200F)
     # - LINE SEPARATOR (U+2028) .. NARROW NO-BREAK SPACE(U+202F)
     # - MEDIUM MATHEMATICAL SPACE (U+205F) .. NOMINAL DIGIT SHAPES(U+206F)
@@ -36,9 +32,6 @@ OVERRIDE_WIDTH = [
     # Yijing Hexagram Symbols (U+4DC0..U+4DFF)
     { 'code_start': 0x4dc0, 'code_end': 0x4dff, 'width': 2 },
 
-    # Private Use Area (U+E000..U+F8FF)
-    { 'code_start': 0xe000, 'code_end': 0xf8ff, 'width': 2 },
-
     # OBJECT REPLACEMENT CHARACTER (U+FFFC)
     # REPLACEMENT CHARACTER (U+FFFD)
     { 'code_start': 0xfffc, 'code_end': 0xfffd, 'width': 2 },
@@ -60,10 +53,4 @@ OVERRIDE_WIDTH = [
     # Symbols and Pictographs Extended-A (U+1FA70..U+1FAFF)
     # Symbols for Legacy Computing (U+1FB00..U+1FBFF)
     { 'code_start': 0x1f000, 'code_end': 0x1fbf9, 'width': 2 },
-
-    # Supplementary Private Use Area-A (U+F0000..U+FFFFF)
-    { 'code_start': 0xf0000, 'code_end': 0xffffd, 'width': 2 },
-
-    # Supplementary Private Use Area-A (U+F0000..U+FFFFF)
-    { 'code_start': 0x100000, 'code_end': 0x10fffd, 'width': 2 },
 ]

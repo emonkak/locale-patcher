@@ -2,11 +2,12 @@
 
 import argparse
 import re
+import sys
 
 import config
 
 def update_ctype(file):
-    for line in file.readlines():
+    for line in file:
         match = re.match(r'^SWIDTH([12])\s+(.*)', line)
         if match is None:
             print(line.rstrip())
@@ -68,29 +69,28 @@ def parse_swidth(input):
     return components
 
 def make_swidth(width, components):
-    notation = f'SWIDTH{width:d} '
+    s = f'SWIDTH{width:d} '
     for component in components:
         code_start, code_end = component
         if code_start == code_end:
-            notation += f'  0x{code_start:04x}'
+            s += f'  0x{code_start:04x}'
         else:
-            notation += f'  0x{code_start:04x} - 0x{code_end:04x}'
+            s += f'  0x{code_start:04x} - 0x{code_end:04x}'
+    return s
 
-    return notation
+parser = argparse.ArgumentParser(
+    description = 'Update character widths in CTYPE for BSD based on your own config.'
+)
+parser.add_argument(
+    'ctype_file',
+    nargs = '?',
+    type = str,
+    help = 'a path of the original CTYPE file to patch (default: stdin)',
+)
+args = parser.parse_args()
 
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser(
-        description = '''
-        Update to optimize UTF-8.src file for CJK users.
-        ''')
-    parser.add_argument(
-        'ctype_file',
-        nargs = '?',
-        type = str,
-        default = 'UTF-8.src',
-        help = ('The UTF-8.src file to read, default: %(default)s')
-    )
-    args = parser.parse_args()
-
+if args.ctype_file:
     with open(args.ctype_file, mode = 'r') as file:
         update_ctype(file)
+else:
+    update_ctype(sys.stdin)
