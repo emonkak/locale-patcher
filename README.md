@@ -89,5 +89,47 @@ This repository contains some small scripts for updating the character width tab
     Example:
 
     ```console
-    $ update_ctype.py /usr/src/share/locale/ctype/en_US.UTF-8.src > UTF-8-PATCHED.src
+    $ update_ctype.py /usr/src/share/locale/ctype/en_US.UTF-8.src > en_US.UTF-8-PATCHED.src
     ```
+
+## Using a custom locale
+
+To use a custom locale in Linux, follow this step:
+
+```shell
+sudo localedef -i en_US -c -f UTF-8-PATCHED en_US.UTF-8
+```
+
+Or overwrite the existing locale:
+
+```shell
+gzip -c UTF-8-PATCHED | sudo dd of=/usr/share/i18n/charmaps/UTF-8.gz
+sudo locale-gen
+```
+
+If you are using MacOS, follow these steps:
+
+```shell
+mkdir -p ~/.locale/UTF-8
+mklocale -o ~/.locale/UTF-8/LC_CTYPE en_US.UTF-8-PATCHED.src
+cat > ~/Library/LaunchAgents/setup-locale.plist <<EOF
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>setup-locale</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/launchctl</string>
+    <string>setenv</string>
+    <string>PATH_LOCALE</string>
+    <string>/Users/YOUR_USER_NAME/.locale</string>
+  </array>
+  <key>RunAtLoad</key>
+  <true/>
+</dict>
+</plist>
+EOF
+launchctl load -w ~/Library/LaunchAgents/setup-locale.plist
+```
