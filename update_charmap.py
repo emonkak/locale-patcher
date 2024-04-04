@@ -35,7 +35,7 @@ def update_charmap(file):
             for code_point in range(code_points[0], code_points[1] + 1):
                 widths[code_point] = width
 
-    for entry in config.OVERRIDE_WIDTH:
+    for entry in config.OVERRIDE_WIDTHS:
         for code_point in range(entry['code_start'], entry['code_end'] + 1):
             widths[code_point] = entry['width']
 

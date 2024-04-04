@@ -15,7 +15,7 @@ def update_ctype(file):
         width = int(match.group(1), 10)
         components = parse_swidth(match.group(2))
 
-        for entry in config.OVERRIDE_WIDTH:
+        for entry in config.OVERRIDE_WIDTHS:
             overrides, components = extract_components(
                 components,
                 entry['code_start'],

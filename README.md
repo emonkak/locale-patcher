@@ -18,7 +18,7 @@ This repository contains some small scripts for updating the character width tab
     Default:
 
     ```python
-    OVERRIDE_WIDTH = [
+    OVERRIDE_WIDTHS = [
         # General Punctuation (U+2000..U+206f)
         #
         # However, excluding following the code ranges:
