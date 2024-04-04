@@ -1,7 +1,7 @@
 OVERRIDE_WIDTHS = [
     # General Punctuation (U+2000..U+206f)
     #
-    # However, excluding following the code ranges:
+    # But, excluding following the code ranges:
     # - EN QUAD (U+2000) .. RIGHT-TO-LEFT MARK(U+200F)
     # - LINE SEPARATOR (U+2028) .. NARROW NO-BREAK SPACE(U+202F)
     # - MEDIUM MATHEMATICAL SPACE (U+205F) .. NOMINAL DIGIT SHAPES(U+206F)
