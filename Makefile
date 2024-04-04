@@ -5,7 +5,7 @@ TARGETS := UTF-8-PATCHED UTF-8-PATCHED.src
 all: $(TARGETS)
 
 install: $(TARGETS)
-ifeq ($(uNAME),Darwin)
+ifeq ($(UNAME),Darwin)
 	mkdir -p ~/.locale/UTF-8
 	mklocale -o ~/.locale/UTF-8/LC_CTYPE UTF-8-PATCHED.src
 else
