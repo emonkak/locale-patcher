@@ -19,7 +19,7 @@ def update_charmap(file):
         if line == 'END WIDTH\n':
             break
 
-        components = re.split('\s+', line.rstrip())
+        components = re.split(r'\s+', line.rstrip())
         if len(components) != 2:
             continue
 
