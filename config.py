@@ -32,6 +32,9 @@ OVERRIDE_WIDTHS = [
     # Yijing Hexagram Symbols (U+4DC0..U+4DFF)
     { 'code_start': 0x4dc0, 'code_end': 0x4dff, 'width': 2 },
 
+    # Private Use Area (U+E000..U+F8FF)
+    { 'code_start': 0xe000, 'code_end': 0xf8ff, 'width': 2 },
+
     # OBJECT REPLACEMENT CHARACTER (U+FFFC)
     # REPLACEMENT CHARACTER (U+FFFD)
     { 'code_start': 0xfffc, 'code_end': 0xfffd, 'width': 2 },
@@ -53,4 +56,8 @@ OVERRIDE_WIDTHS = [
     # Symbols and Pictographs Extended-A (U+1FA70..U+1FAFF)
     # Symbols for Legacy Computing (U+1FB00..U+1FBFF)
     { 'code_start': 0x1f000, 'code_end': 0x1fbf9, 'width': 2 },
+
+    # Supplementary Private Use Area-A (U+F0000..U+FFFFF)
+    # Supplementary Private Use Area-B (U+100000..U+10FFFF)
+    { 'code_start': 0xf0000, 'code_end': 0x10FFFD, 'width': 2 },
 ]
