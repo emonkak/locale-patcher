@@ -8,6 +8,12 @@ import config
 
 def update_ctype(file):
     for line in file:
+        match = re.match(r'^ENCODING(\s+)"UTF8"', line)
+        if match:
+            # In Mac, "UTF8" is an invalid encoding.
+            print(f'ENCODING{match.group(1)}"UTF-8"')
+            continue
+
         match = re.match(r'^SWIDTH([12])\s+(.*)', line)
         if match is None:
             print(line.rstrip())

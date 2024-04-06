@@ -25,7 +25,6 @@ UTF-8.src:
 	curl -s -o $@ https://raw.githubusercontent.com/openbsd/src/master/share/locale/ctype/en_US.UTF-8.src
 
 UTF-8-PATCHED.src: UTF-8.src update_ctype.py config.py
-# In Mac, "UTF8" is an invalid encoding.
-	python3 update_ctype.py $< | sed -E 's|^(ENCODING\s+)"UTF8"|\1"UTF-8"|' > $@
+	python3 update_ctype.py $< > $@
 
 .PHONY: all clean
