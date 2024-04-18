@@ -1,4 +1,4 @@
-# Locale Patchers
+# Locale Patcher
 
 This repository contains some small scripts for updating the character width table for the locale.
 
