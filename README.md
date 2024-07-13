@@ -20,12 +20,13 @@ This repository contains some small scripts for updating the character width tab
     ```python
     OVERRIDE_WIDTHS = [
         # General Punctuation (U+2000..U+206f)
-        #
         # But, excluding following the code ranges:
+        # - HYPHEN (U+2010)
+        # - NON-BREAKING HYPHEN (U+2011)
         # - EN QUAD (U+2000) .. RIGHT-TO-LEFT MARK(U+200F)
         # - LINE SEPARATOR (U+2028) .. NARROW NO-BREAK SPACE(U+202F)
         # - MEDIUM MATHEMATICAL SPACE (U+205F) .. NOMINAL DIGIT SHAPES(U+206F)
-        { 'code_start': 0x2010, 'code_end': 0x2027, 'width': 2 },
+        { 'code_start': 0x2012, 'code_end': 0x2027, 'width': 2 },
         { 'code_start': 0x2030, 'code_end': 0x205E, 'width': 2 },
 
         # Letterlike Symbols (U+2100..U+214F)
