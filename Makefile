@@ -10,6 +10,7 @@ ifeq ($(UNAME),Darwin)
 	mklocale -o ~/.locale/UTF-8/LC_CTYPE UTF-8-PATCHED.src
 else
 	gzip -c UTF-8-PATCHED > /usr/share/i18n/charmaps/UTF-8.gz
+	cd / && locale-gen
 endif
 
 clean:
